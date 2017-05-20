@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Test "My Little Pony"</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+        @font-face{
+            font-family: MyFont;            /*создаёт твой собственный шрифт*/
+            src: url(Equestria.otf);        /*который берёт из этого файла<=*/
+        }
+        p, label, input {                   /*применяет этот шрифт*/
+            font: 24px MyFont;
+        }
+		#nadpis{
+			font-size:27px;
+			}
+        .questions, #next, #proverit, #result, #win{       /*скрывает все вопросы и кнопки по умолчанию*/
+            display: none;
+        }
+		#looser{
+			display:inline;
+		}
+        body{
+            text-align: center;
+        }                                           
+        .questions{
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+    <script src="script.js"></script>          
+</head>
+<body>
+    <div class="container">
+        <img src="S86OdAVzaBE.jpg">
+    </div>
+    <div>
+        <button class="btn bg-primary" id="vse" onclick="vse();">Показать всё</button>
+        <button class="btn bg-primary" id="pervyj" onclick="pervyj();">Показать по-одному</button>
+    </div>
+    <form>
+        <fieldset id="fs1" style="display:none;"><legend id="nadpis">Вопросы</legend>
+        <div class="row">
+         <div class="col-md-2"></div>
+         <div class="col-md-8">
+            <div id="1" class="questions styling row">
+                <div class="col-md-8"><label>Сколько на данный момент существует сезонов мультсериала My Little Pony?</label></div>
+                <div class="col-md-4"><input type="text" size="6" id="11"></div>
+            </div>
+            <div id="2" class="questions row">
+                <div class="col-md-8"><label>Как зовут питомца Rainbow Dash?</label></div>
+                <div class="col-md-4"><input type="text" size="6" id="21"></div>
+            </div>
+            <div id="3" class="questions row">
+                <div class="col-md-8">
+                    <label>Кто изображён на картинке?</label>
+                    <br><img class="img-responsive" src="ponies.jpg">
+                </div>
+                <div class="col-md-4">
+                    <br><input type="checkbox" name="three" id="31"/><label>Octavia</label>
+                    <br><input type="checkbox" name="three" id="32"/><label>DJ Pon 3</label>
+                    <br><input type="checkbox" name="three" id="33"/><label>Zecora</label>
+                    <br><input type="checkbox" name="three" id="34"/><label>Derpy</label>
+                    <br><input type="checkbox" name="three" id="35"/><label>Simphony</label>
+                    <br><input type="checkbox" name="three" id="36"/><label>Bubble Quick</label>
+                </div>
+            </div>
+            <div id="4" class="questions row">
+                <div class="col-md-8"><label>Какое настоящее имя Бон-Бон?</label></div>
+                <div class="col-md-4">
+                    <br><input type="radio" name="four" id="41"/><label>Sugar Bell</label>
+                    <br><input type="radio" name="four" id="42"/><label>Upper Crust</label>
+                    <br><input type="radio" name="four" id="43"/><label>Sweety Drops</label>
+                    <br><input type="radio" name="four" id="44"/><label>Elbow Greese</label>
+                </div>
+            </div>
+            <div id="5" class="questions row">
+                <div class="col-md-8"><label>Чей гимн пел Спайк на Эквестрийских Играх?</label></div>
+                <div class="col-md-4">
+                    <br><input type="radio" name="five" id="51"/><label>Ponyville</label>
+                    <br><input type="radio" name="five" id="52"/><label>Canterlot</label>
+                    <br><input type="radio" name="five" id="53"/><label>Crystal Empire</label>
+                    <br><input type="radio" name="five" id="54"/><label>Cloudsdale</label>
+                </div>
+            </div>
+            <div id="6" class="questions row">
+                <div class="col-md-8"><label>Кто украл корону Твайлайт Спаркл?</label></div>
+                <div class="col-md-4">
+                    <br><input type="radio" name="six" id="61"/><label>Snips</label>
+                    <br><input type="radio" name="six" id="62"/><label>Sunset Shimmer</label>
+                    <br><input type="radio" name="six" id="63"/><label>Sneils</label>
+                    <br><input type="radio" name="six" id="64"/><label>Fluttershy</label>
+                    <br><input type="radio" name="six" id="65"/><label>Princess Luna</label>
+                </div>
+            </div>
+            <div id="7" class="questions row">
+                <div class="col-md-8"><label>Как зовут родителей Рарити?</label></div>
+                <div class="col-md-4">
+                    <br><input type="checkbox" name="seven" id="71"/><label>Magnum</label>
+                    <br><input type="checkbox" name="seven" id="72"/><label>Betty Bouffant</label>
+                    <br><input type="checkbox" name="seven" id="73"/><label>Twilight Velvet</label>
+                    <br><input type="checkbox" name="seven" id="74"/><label>Jet Set</label>
+                </div>
+            </div>
+            <div id="8" class="questions row">
+                <div class="col-md-8"><label>Кто является родным братом/сестрой Эппл Джек? Возможны несколько вариантов</label></div>
+                <div class="col-md-4">
+                    <br><input type="checkbox" name="eight" id="81"/><label>Babs Seed</label>
+                    <br><input type="checkbox" name="eight" id="82"/><label>Big Macintosh</label>
+                    <br><input type="checkbox" name="eight" id="83"/><label>Apple Bloom</label>
+                    <br><input type="checkbox" name="eight" id="84"/><label>Apple Rose</label>
+                    <br><input type="checkbox" name="eight" id="85"/><label>Apple Cider</label>
+                </div>
+            </div>
+            <div id="9" class="questions row">
+                <div class="col-md-6">
+                    <label>
+                        В конце третьего сезона мультсериала Твайлайт произносит заклинание, которое заставляет кьютимарки её подруг поменяться местами.
+                        Соотнесите кьютимарки так, как они были после произнесения заклинания.
+                    </label>
+                </div>
+                <div class="col-md-4">
+                    <br><label>Apple Jack </label><input type="text" size="2" id="91"/><br>
+                    <br><label>Rarity </label><input type="text" size="2" id="92"/><br>
+                    <br><label>Pinkie Pie </label><input type="text" size="2" id="93"/><br>
+                    <br><label>Rainbow Dash </label><input type="text" size="2" id="94"/><br>
+                    <br><label>Fluttershy </label><input type="text" size="2" id="95"/><br>
+                </div>
+                <div class="col-md-2">
+                    <br><label>1.</label><img src="apples.png">
+                    <br><label>2.</label><img src="diamonds.png">
+                    <br><label>3.</label><img src="baloons.png">
+                    <br><label>4.</label><img src="rainbow.png">
+                    <br><label>5.</label><img src="butterflies.png">
+                </div>
+            </div>
+            <div id="next">
+                <input type="button" value="Следующий вопрос" class="btn bg-primary" onclick="po_odnomy();"/>
+            </div>
+            <div id="proverit">
+                <button type="button" class="btn bg-primary" onclick="result();">Проверить</button>
+            </div>
+            <div id="result">
+                <h3>Вы ответили правильно на <span id="pravilnye"> </span> вопросов</h3>
+                <br><img id="win" src="win.jpg" alt="Yay!">
+                <br><img id="looser" src="looser.jpg" alt="Oh my God!">
+            </div>
+            </div>
+            <div class="col-md-2"></div>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>
